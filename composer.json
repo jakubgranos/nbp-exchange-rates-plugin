@@ -1,0 +1,24 @@
+{
+    "name": "plugin/api-nbp-rates",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "ApiNbpRatesPlugin\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    },
+    "authors": [
+        {
+            "name": "Jakub Granos",
+            "email": "jakubgranos@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "10up/wp_mock": "^1.0"
+    },
+    "scripts": {
+        "test": "phpunit --bootstrap tests/bootstrap.php tests"
+    }
+}
