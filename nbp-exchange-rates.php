@@ -8,8 +8,21 @@
  */
 
 // Include the Composer autoload file
-require_once __DIR__ . '/vendor/autoload.php';
+$autoload_path = __DIR__ . '/vendor/autoload.php';
 
+if (file_exists($autoload_path)) {
+    require_once $autoload_path;
+} else {
+    // Display an admin notice if the autoload file is missing
+    add_action('admin_notices', function() {
+        ?>
+        <div class="notice notice-error">
+            <p><?php _e('API NBP Rates Plugin: The Composer autoload file is missing. Please run "composer install" in the plugin directory.', 'api-nbp-rates-plugin'); ?></p>
+        </div>
+        <?php
+    });
+    return;
+}
 use ApiNbpRatesPlugin\AdminInterface;
 
 /**

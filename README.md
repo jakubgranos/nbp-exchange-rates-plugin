@@ -11,21 +11,25 @@ przed ich wyświetleniem.
 
 ## Installation
 
-1. Clone the repository:
+Two options for installation,
+
+1. First option:
+   download ZIP folder and drop it into plugins at wp-admin/plugin-install.php and click upload plugin
+
+2. Secondary option:
+
+-   Clone the repository
 
     ```sh
     git clone <repository-url>
 
     ```
 
-2. Navigate to the plugin directory cd <plugin-directory>
-
-3. Install dependencies using Composer:
-   composer install
-
-4. Activate the plugin in the WordPress admin panel.
-
-5. Have fun!
+-   Navigate to the plugin directory cd <plugin-directory>
+-   Install dependencies using Composer:
+    composer install
+-   Activate the plugin in the WordPress admin panel.
+-   Have fun!
 
 ## Usage
 
