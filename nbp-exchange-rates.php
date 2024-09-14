@@ -10,6 +10,9 @@
 // Include the Composer autoload file
 $autoload_path = __DIR__ . '/vendor/autoload.php';
 
+/**
+ * If statement for avoiding errors when the autoload file is missing and plugin is activated
+ */
 if (file_exists($autoload_path)) {
     require_once $autoload_path;
 } else {

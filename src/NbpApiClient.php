@@ -13,9 +13,7 @@ class NbpApiClient {
      * @return array|null The parsed response from the API, or null if an error occurred.
      */
     public function fetchGoldPrice() {
-        $response = wp_remote_get($this->baseUrl . 'cenyzlota');
-        
-        return $this->parseResponse($response);
+        return $this->parseResponse(\wp_remote_get($this->baseUrl . 'cenyzlota'));
     }
 
     /**
@@ -26,19 +24,10 @@ class NbpApiClient {
     public function fetchCurrencyRates() {
         $currencies = ['eur', 'gbp', 'usd'];
         $rates = [];
-        
+
         foreach ($currencies as $currency) {
-            $response = wp_remote_get($this->baseUrl . "exchangerates/rates/a/{$currency}/");
-
-            /**
-             * If the response is an error, we set the rate to null and continue to the next currency.
-             */
-            if(is_wp_error($response)) {
-                $rates[$currency] = null;
-                continue;
-            }
-
-            $rates[$currency] = $this->parseResponse($response);
+            $response = \wp_remote_get($this->baseUrl . "exchangerates/rates/a/{$currency}/");
+            $rates[$currency] = \is_wp_error($response) ? null : $this->parseResponse($response);
         }
 
         return $rates;
@@ -48,11 +37,6 @@ class NbpApiClient {
      * Parses the response from the API.
      */
     private function parseResponse($response) {
-        if (is_wp_error($response)) {
-            return null;
-        }
-        
-        $body = wp_remote_retrieve_body($response);
-        return json_decode($body, true);
+        return \is_wp_error($response) ? null : json_decode(\wp_remote_retrieve_body($response), true);
     }
 }
