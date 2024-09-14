@@ -14,7 +14,9 @@ przed ich wyświetleniem.
 Two options for installation,
 
 1. First option:
-   download ZIP folder and drop it into plugins at wp-admin/plugin-install.php and click upload plugin
+   download ZIP folder and drop it into plugins at wp-admin/plugin-install.php and click upload plugin - ZIP folder does't contains tests its only to see the output purpose.
+
+    to run test, you need to go via secondary option and run composer test
 
 2. Secondary option:
 
